@@ -125,6 +125,16 @@ Streamlit Interactive Dashboard
 * Improved recall for churn class
 * Better aligned with business goals
 
+## 🔁 Cross-Validation (Model Robustness Check)
+
+To validate that the model performance is not dependent on a single train–test split, we performed **5-fold Stratified Cross-Validation** using **ROC-AUC** as the evaluation metric.
+
+**Results:**
+- Mean ROC-AUC: **~0.77**
+- Standard Deviation: **~0.01**
+
+The low variance across folds indicates that the model generalizes well and is stable across different data splits, strengthening confidence in its production readiness.
+
 ---
 
 ### 3️⃣ Threshold Optimization (Final Model)
@@ -206,8 +216,12 @@ BANK-CUSTOMER-CHURN/
 ├── DATA/
 │   └── Churn_Modelling.csv
 │
-├── notebook/
-│   └── bank_customer_churn.ipynb
+├── validation
+|   └── cv_results.json
+|
+├── bank_customer_churn.ipynb
+│
+├── cross_validation.ipynb
 │
 ├── artifacts/
 │   └── churn_model.pkl
